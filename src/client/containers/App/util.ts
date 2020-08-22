@@ -1,27 +1,4 @@
-const PER_PAGE = 48;
-/**
- * util to debounce function execution
- * @param n debounce timeout
- * @param fn function to debounce
- * @param immed if run immediately
- */
-
-export function debounce(
-  n: number,
-  fn: (...params: any[]) => any,
-  immed = false,
-): any {
-  let timer: any;
-  return function (this: any, ...args: any[]) {
-    console.log('clear debounce ', timer);
-    if (timer === undefined && immed) {
-      fn.apply(this, args);
-    }
-    clearTimeout(timer);
-    timer = setTimeout(() => fn.apply(this, args), n);
-    console.log('set clear debounce ', timer);
-  };
-}
+export const PER_PAGE = 30;
 
 export const getCurrentEntityType = (pathname: string): string => {
   switch (pathname) {
@@ -56,5 +33,5 @@ export const getAllData = (input: any, items: any): any => {
 };
 
 export const _hasMore = (total: number, page: number): boolean => {
-  return page <= Math.ceil(total / PER_PAGE);
+  return page < Math.ceil(total / PER_PAGE);
 };

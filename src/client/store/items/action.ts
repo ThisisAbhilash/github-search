@@ -1,3 +1,4 @@
+import { PER_PAGE } from './../../containers/App/util';
 import { ItemActionTypes } from './types';
 
 import { ActionCreator, Action, Dispatch } from 'redux';
@@ -23,7 +24,12 @@ export const fetchRequest: AppThunk = (payload: SearchPayload) => {
     getState: () => ApplicationState,
   ): Promise<Action> => {
     try {
-      const { search_type, search_text, page = 1, per_page = 48 } = payload;
+      const {
+        search_type,
+        search_text,
+        page = 1,
+        per_page = PER_PAGE,
+      } = payload;
       if (page === 1) {
         dispatch({
           type: ItemActionTypes.FETCH_REQUEST,
@@ -41,7 +47,7 @@ export const fetchRequest: AppThunk = (payload: SearchPayload) => {
           type: ItemActionTypes.SERVING_FROM_CACHE,
         });
       }
-      const items = await fetchItems(payload);
+      const items = await fetchItems({ ...payload, per_page: PER_PAGE });
 
       return dispatch({
         type: ItemActionTypes.FETCH_SUCCESS,

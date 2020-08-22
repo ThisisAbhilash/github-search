@@ -65,6 +65,7 @@ export default class RedisCache implements IProviderBase, ICacheBase {
 
   get = (key: string): Promise<string> =>
     new Promise((resolve, reject) => {
+      if (!this.connected) return resolve('');
       console.time(`[REDIS] time taken to fetch key - ${key}`);
       this.client.get(key, (error, result) => {
         console.timeEnd(`[REDIS] time taken to fetch key - ${key}`);
@@ -75,6 +76,7 @@ export default class RedisCache implements IProviderBase, ICacheBase {
 
   set = (key: string, value: string, ex: number): Promise<boolean> =>
     new Promise((resolve, reject) => {
+      if (!this.connected) return resolve(false);
       this.client.set(key, value, 'EX', ex, (error, result) => {
         if (error) return reject(error);
         return resolve(!!result);

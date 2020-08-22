@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import Config from '../../utils/config';
 import HttpClient from '../../utils/http-client';
 import RedisCache from '../../providers/cache/redis';
@@ -10,7 +10,7 @@ import { searchQueryRules, formatSearchResponse } from './search-util';
 type SearchQuery = {
   q: string;
   page: number;
-  per_page: number;
+  per_page?: number;
   sort?: string;
   order?: string;
 };
@@ -31,7 +31,11 @@ export default class SearchController extends HttpClient
     this.router.put(`/clear-cache`, this._clearCache);
   }
 
-  private _search = async (req: Request, res: Response): Promise<Response> => {
+  private _search = async (
+    req: Request,
+    res: Response,
+    next: NextFunction,
+  ): Promise<Response | void> => {
     try {
       await Promise.all(
         searchQueryRules.map((validation: any) => validation.run(req)),
@@ -59,7 +63,7 @@ export default class SearchController extends HttpClient
       const params: SearchQuery = {
         q: String(search_text),
         page: Number(page),
-        per_page: Number(per_page),
+        // per_page: Number(per_page),
         ...(sort && { sort: String(sort) }),
         ...(order && { order: String(order) }),
       };
@@ -79,7 +83,7 @@ export default class SearchController extends HttpClient
       );
       return res.status(200).send(formattedResponse);
     } catch (error) {
-      throw error;
+      next(error);
     }
   };
 

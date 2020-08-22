@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
 // dotenv.config({ path: __dirname + '/../../../.env' });
+// commenting this out, to use heroku env
 
 export default class Config {
   /**

@@ -11,7 +11,7 @@ import Card from '../../components/card-list';
 import { getCurrentEntityType, getAllData, _hasMore } from './util';
 import './style.css';
 
-const MAX_SIZE = 240;
+const MAX_SIZE = 150; // limit to 5 page scroll for sake of api rate limit
 
 const App: FC<RouteComponentProps> = (props: RouteComponentProps) => {
   const { pathname = '' } = useLocation();
@@ -30,15 +30,15 @@ const App: FC<RouteComponentProps> = (props: RouteComponentProps) => {
     }
   };
   const _setSearchText = (val: any) => {
-    console.log('called with val ', val);
     setSearchText(val);
   };
 
   const dSetSearchText = debounce(_setSearchText, 1000);
 
   useEffect(() => {
+    setPage(1);
     fetchDataRequest();
-  }, [pathname, page, search_text]);
+  }, [pathname, search_text]);
 
   useEffect(() => {
     props.history.push(`/${search_type}`);
@@ -46,7 +46,9 @@ const App: FC<RouteComponentProps> = (props: RouteComponentProps) => {
   }, [search_type]);
 
   const fetchNewPageDataRequest = () => {
-    setPage(page + 1);
+    const newPage = page + 1;
+    setPage(newPage);
+    dispatch(fetchRequest({ search_text, search_type, page: newPage }));
   };
 
   const { data_items, count = 0 } = getAllData(
@@ -106,7 +108,7 @@ const App: FC<RouteComponentProps> = (props: RouteComponentProps) => {
                 )
               }
             >
-              <ul className="list">
+              <ul className="list" key={1}>
                 {data_items.map((k: any) => (
                   <Card key={k.id} {...k} search_type={search_type} />
                 ))}

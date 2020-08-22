@@ -20,9 +20,12 @@ const ExceptionHandlerMiddleware = (
   if (!(err instanceof Error)) {
     return next();
   }
-  const status = err.status || 500;
+  const status = err.status || (err.response && err.response.status) || 500;
   const requestUrl = req.originalUrl;
-  const message = err.message || 'something went wrong';
+  const message =
+    (err.response && err.response.data && err.response.data.message) ||
+    err.message ||
+    'something went wrong';
 
   // log error
   new Logger().error(

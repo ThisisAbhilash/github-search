@@ -24,8 +24,8 @@ class App {
     this.swagger();
     this.routes(appInit.controllers);
     this.assets();
-    this.exceptionHandler(appInit.exceptionHandlers);
     this.fallback(); // fallback to index.html
+    this.exceptionHandler(appInit.exceptionHandlers);
 
     this.logger = new Logger();
   }
@@ -58,10 +58,10 @@ class App {
   }
 
   private exceptionHandler(exceptionHandlers: {
-    forEach: (arg0: (middleWare: any) => void) => void;
+    forEach: (arg0: (errorHandler: any) => void) => void;
   }) {
-    exceptionHandlers.forEach((handler) => {
-      this.app.use('/api', handler);
+    exceptionHandlers.forEach((errorHandler) => {
+      this.app.use(errorHandler);
     });
   }
 

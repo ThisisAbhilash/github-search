@@ -41,7 +41,7 @@ const app = new App({
     bodyParser.urlencoded({ extended: true }),
     ResponseCached,
   ],
-  exceptionHandlers: [ExceptionHandlerMiddleware, RouteNotFoundMiddleware],
+  exceptionHandlers: [RouteNotFoundMiddleware, ExceptionHandlerMiddleware],
   port: Number(Config.get('PORT', '5000')),
 });
 

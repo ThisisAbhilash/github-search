@@ -173,6 +173,12 @@ export const swaggerDocument = {
               type: 'object',
             },
           },
+          '403': {
+            description: 'rate limit exceeded',
+            schema: {
+              type: 'object',
+            },
+          },
           '500': {
             description: 'internal server error',
             schema: {
