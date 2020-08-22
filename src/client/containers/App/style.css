@@ -1,0 +1,71 @@
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: floralwhite;
+  padding: 10px;
+}
+
+.margin5 {
+  margin: 5px;
+}
+
+.pad5 {
+  padding: 5px;
+}
+
+.mLeft10 {
+  margin-left: 10px;
+}
+
+.dFlex {
+  display: flex;
+}
+
+.imageText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+input[type=text] {
+  width: 35%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+select {
+  width: 15%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.section-title {
+  margin-top: 30px;
+}
+
+/* Tablets */
+@media (max-width: 1000px) {
+  .App {
+    max-width: 600px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 640px) {
+  .App {
+    max-width: 100%;
+    padding: 0 15px;
+  }
+}

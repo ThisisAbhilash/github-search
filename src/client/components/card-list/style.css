@@ -1,0 +1,43 @@
+.card {
+  width: calc(33% - 10px);
+  margin: 20px 0;
+  margin-left: 10px;
+}
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card-link {
+  color: inherit;
+  text-decoration: none;
+}
+.card-image {
+  width: 100%;
+}
+.card-title {
+  padding: 5px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.card-channel {
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.card-metrics {
+  padding: 5px;
+}
+/* Tablets */
+@media (max-width: 1000px) {
+  .card {
+    width: calc(50% - 22px);
+  }
+}
+
+/* Mobiles */
+@media (max-width: 640px) {
+  .card {
+    width: 100%;
+  }
+}

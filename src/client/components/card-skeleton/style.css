@@ -1,0 +1,43 @@
+
+.section-title {
+  margin-top: 30px;
+}
+
+.list {
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.card {
+  width: calc(33% - 10px);
+  margin: 20px 0;
+  margin-left: 5px;
+}
+
+.card-title {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.card-channel {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+/* Tablets */
+@media (max-width: 1000px) {
+  .card {
+    width: calc(50% - 22px);
+  }
+}
+
+/* Mobiles */
+@media (max-width: 640px) {
+  .card {
+    width: 100%;
+  }
+}
