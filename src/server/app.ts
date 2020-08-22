@@ -67,7 +67,7 @@ class App {
 
   private fallback() {
     this.app.use('*', (_, res: Response): any =>
-      res.sendFile(path.join(__dirname + '/index.html')),
+      res.sendFile(path.join(__dirname + '/../build/index.html')),
     );
   }
 
