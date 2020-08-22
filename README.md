@@ -18,7 +18,7 @@ redux, redux-thunk
 redux-persist - to persist store data
 Vanilla CSS
 ```
-Implemented the basic functionality of search across users and repositories, added `skeleton loading` to avoid loaders and blank page, `implemented infinite scroll for pagination`, `persisted store` and `cache first strategy` before making an API  call.
+Implemented the basic functionality of search across users and repositories, added `skeleton loading` to avoid loaders and blank page, `implemented infinite scroll for pagination (limited to 5 page to check API rate limit)`, `persisted store` and `cache first strategy` before making an API  call.
 
 #### Trade-off
 UX for user/repo cards could have been better, also components could have been a bit less coupled.
