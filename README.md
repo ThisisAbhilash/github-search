@@ -12,7 +12,7 @@ clone the repo, install dependencies and npm run dev to run locally.
 ## Frontend
 
 <p align="center">
-  <img src="public/lighthouse-report.png" alt="Logo" height="400px" width="400px">
+  <img src="public/lighthouse_report.png" alt="Logo" height="400px" width="400px">
   <h3 align="center">Lighhouse Audit Report</h3>
 </p>
 
