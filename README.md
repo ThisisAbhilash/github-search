@@ -34,11 +34,18 @@ cypress - unit and api testing
 swagger - to document api
 
 Endpoints
+Health
 GET /api/ping
 GET /api/health
 
-GET /api/v1/search (though the task mentioned this to be a POST, but I think the usecase is well suited for GET Api)
+Searcg
+GET /api/v1/search
+1. A client driven endpoint, where client can pass what fields it want (to solve under / over fetching),
+2. Though the task mentioned this to be a POST, but I think the usecase is well suited for GET API.
+
+Cache
 PUT /clear-cache
+1. flushall redis cached data.
 ```
 [Detailed Documentation of API's](https://github-v1-search.herokuapp.com/api-docs/)
 
