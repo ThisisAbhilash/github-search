@@ -47,7 +47,7 @@ const Card: FC<RepoProps> = (props: RepoProps) => {
       >
         <img
           src={owner.avatar_url || avatar_url}
-          alt={full_name}
+          alt={full_name || login || 'github_user_image'}
           className="card-image"
         />
         <h4 className="card-title">

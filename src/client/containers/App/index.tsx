@@ -62,7 +62,7 @@ const App: FC<RouteComponentProps> = (props: RouteComponentProps) => {
       <section className="sticky">
         <div className="dFlex margin5">
           <div className="dFlex">
-            <img src={GitLogo} height={40} />
+            <img src={GitLogo} height={40} alt="github_logo" />
           </div>
           <div className="imageText">
             <div className="dFlex">

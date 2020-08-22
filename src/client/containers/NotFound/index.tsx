@@ -4,7 +4,7 @@ import NotFoundImage from '../../../../public/404.png';
 const NotFound: FC = () => {
   return (
     <div className="App">
-      <img src={NotFoundImage} />
+      <img src={NotFoundImage} alt="not_found" />
     </div>
   );
 };
