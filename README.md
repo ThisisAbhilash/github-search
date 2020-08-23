@@ -43,7 +43,7 @@ Health
 GET /api/ping
 GET /api/health
 
-Searcg
+Search
 GET /api/v1/search
 1. A client driven endpoint, where client can pass what fields it want (to solve under / over fetching),
 2. Though the task mentioned this to be a POST, but I think the usecase is well suited for GET API.
